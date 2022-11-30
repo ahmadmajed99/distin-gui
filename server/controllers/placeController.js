@@ -1,6 +1,4 @@
-import express from "express";
 import Place from "../models/Place.js";
-const router = express.Router();
 
 //Create
 export const createPlace = async (req, res, next) => {
@@ -31,14 +29,10 @@ export const updatePlace = async (req, res, next) => {
 
 //GET ALL
 export const getPlace = async (req, res, next) => {
-  //   const failed = true;
-  //   if (failed) return next(createError(401, "you are not authenticated!"));
   try {
-    const Place = await Place.find();
-    res.status(200).json(Place);
+    const Places = await Place.find();
+    res.status(200).json(Places);
   } catch (err) {
     next(err);
   }
 };
-
-export default router;

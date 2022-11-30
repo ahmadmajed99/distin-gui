@@ -1,18 +1,16 @@
 import mongoose from "mongoose";
 
+var Schema = mongoose.Schema;
+
 const categorySchema = new mongoose.Schema(
   {
-    categories: {
-      name: {
-        type: String,
-        required: true,
-      },
-      desc: {
-        type: String,
-        required: true,
-      },
-      image: String,
+    name: {
+      type: String,
+      required: true,
     },
+    image: String,
+
+    items: [{ type: Schema.Types.ObjectId, ref: "Item" }],
   },
   { timestamps: true }
 );

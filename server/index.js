@@ -5,7 +5,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 
 import categoryRoutes from "./routes/categoryRoutes.js";
-import itemRoutes from "./routes/categoryRoutes.js";
+import itemRoutes from "./routes/itemRoutes.js";
 import adminRoutes from "./routes/adminRouter.js";
 import placeRoutes from "./routes/placeRouter.js";
 

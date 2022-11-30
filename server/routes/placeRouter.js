@@ -8,10 +8,10 @@ import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
+router.get("/", getPlace);
+
 router.post("/", verifyAdmin, createPlace);
 
 router.put("/:id", verifyAdmin, updatePlace);
-
-router.get("/", getPlace);
 
 export default router;

@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+var Schema = mongoose.Schema;
+
 const itemSchema = new mongoose.Schema(
   {
     name: {
@@ -14,12 +16,11 @@ const itemSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    photos: [String],
-    category: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
-    },
+    image: [String],
+
+    category: [{ type: Schema.Types.ObjectId, ref: "Category" }],
   },
+
   { timestamps: true }
 );
 

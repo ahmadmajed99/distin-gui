@@ -4,7 +4,7 @@ import {
   getItem,
   updateItem,
   deleteItem,
-} from "../controllers/itemController.js";
+} from "../controllers/itemControllers.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();

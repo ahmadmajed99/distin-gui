@@ -1,7 +1,7 @@
 import Category from "../models/Category.js";
 
 export const createCategory = async (req, res, next) => {
-  const newCategory = newCategory(req.body);
+  const newCategory = new Category(req.body);
 
   try {
     const savedCategory = await newCategory.save();
@@ -29,7 +29,7 @@ export const updateCategory = async (req, res, next) => {
 export const deleteCategory = async (req, res, next) => {
   try {
     await Category.findByIdAndDelete(req.params.id);
-    res.status(200).json("Data has been deleted");
+    res.status(200).json("Categeory has been deleted");
   } catch (err) {
     next(err);
   }
@@ -37,8 +37,8 @@ export const deleteCategory = async (req, res, next) => {
 
 export const getCategory = async (req, res, next) => {
   try {
-    const Category = await Category.find();
-    res.status(200).json(Category);
+    const Categories = await Category.find();
+    res.status(200).json(Categories);
   } catch (err) {
     next(err);
   }
