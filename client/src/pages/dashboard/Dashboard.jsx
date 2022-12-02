@@ -5,6 +5,8 @@ import useFetch from "../../hooks/useEffect";
 const Dashboard = () => {
   const { data, loading, error } = useFetch("http://localhost:5000/api/place");
 
+  // const handleUpdate = () => {}
+
   console.log(data);
 
   return (

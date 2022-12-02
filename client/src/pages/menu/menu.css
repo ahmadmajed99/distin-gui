@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.menu {
+  padding: 1rem 1rem 1rem 235px;
+  width: 100%;
+}
+
+.menu h1 {
+  color: blue;
+  font-size: 3rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.menuMain {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.menuCode {
+  background-color: #fff;
+  height: fit-content;
+  padding: 2rem;
+}
+
+.mainMenuContainer {
+  background-color: black;
+  border-radius: 12px;
+  padding: 1rem 1rem 2.1rem;
+}
+
+.menuMenu {
+  height: 667px;
+  width: 375px;
+}
+
+.menuHero {
+  background-color: #e6e5e5;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 3rem;
+  width: 100%;
+}
+
+.menuHeader {
+  align-items: center;
+  border-bottom: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.menuLogo {
+  width: 120px;
+}
+
+.menuTitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.menuDesc {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  text-transform: capitalize;
+}
+
+.menuLoc {
+  align-items: center;
+  display: flex;
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: 100;
+  width: 100%;
+  gap: 1rem;
+}
+
+.menuContent {
+  padding: 1rem;
+}
+
+.category-card {
+  background-color: #fff;
+  align-items: center;
+  display: flex;
+  border-radius: 7px;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0.5rem;
+  text-align: center;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.item-title {
+  font-size: 1.4rem;
+  margin: 1.2rem 0 0.5rem;
+}
+
+.menu__item {
+  background-color: #fff;
+  border-radius: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding: 7px;
+  position: relative;
+}
+
+.image-item {
+  width: 30%;
+}
+
+.item-details {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 20px;
+  padding-left: 0.5rem;
+  width: 70%;
+}
+
+.item-price {
+  align-self: flex-end;
+  bottom: 7px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: auto;
+  margin-top: auto;
+  position: absolute;
+  right: 7px;
+}
+
+.item-details h3 {
+  font-size: 1rem;
+}
+
+.item-details p {
+  font-size: 0.88rem;
+}
