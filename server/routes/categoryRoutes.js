@@ -5,17 +5,17 @@ import {
   createCategory,
   updateCategory,
 } from "../controllers/categoryController.js";
-// import verifyAdmin from "../utils/verifyToken.js";
+import { verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
 //Create
-router.post("/", createCategory);
+router.post("/", verifyAdmin, createCategory);
 
 // UPDATE
-router.put("/:id", updateCategory);
+router.put("/:id", verifyAdmin, updateCategory);
 
 //DELETE
-router.delete("/:id", deleteCategory);
+router.delete("/:id", verifyAdmin, deleteCategory);
 
 //GET ALL
 router.get("/", getCategory);

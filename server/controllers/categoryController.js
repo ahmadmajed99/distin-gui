@@ -37,7 +37,7 @@ export const deleteCategory = async (req, res, next) => {
 
 export const getCategory = async (req, res, next) => {
   try {
-    const Categories = await Category.find();
+    const Categories = await Category.find().populate("items");
     res.status(200).json(Categories);
   } catch (err) {
     next(err);

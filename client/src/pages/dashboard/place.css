@@ -1,0 +1,55 @@
+.place {
+  padding: 1rem 1rem 1rem 235px;
+  width: 100%;
+}
+
+.formPlaceContainer {
+  background-color: #dedede;
+  border-radius: 50px;
+  display: flex;
+  margin: 4rem auto auto;
+  width: 70%;
+}
+
+.placeTitle {
+  font-size: 3rem;
+  margin: 1rem 0;
+  text-align: center;
+  color: blue;
+}
+
+.placeForm {
+  margin-left: 2rem;
+  padding: 1rem;
+  width: 70%;
+}
+
+.labelPlace {
+  align-items: center;
+  display: flex;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.labelPlace h3 {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  width: 200px;
+  margin-left: 2rem;
+}
+
+.labelPlace input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.updateBtn {
+  background-color: blue;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 1rem;
+  cursor: pointer;
+}

@@ -18,7 +18,7 @@ const itemSchema = new mongoose.Schema(
     },
     image: [String],
 
-    category: [{ type: Schema.Types.ObjectId, ref: "Category" }],
+    category: { type: Schema.Types.ObjectId, ref: "Category" },
   },
 
   { timestamps: true }
