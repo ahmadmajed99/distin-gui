@@ -1,6 +1,8 @@
 import Place from "../models/Place.js";
 
-//Create
+// @desc      Create place
+// @route     CREATE /api/place
+// @access    Admin/Private
 export const createPlace = async (req, res, next) => {
   const newPlace = new Place(req.body);
   try {
@@ -11,7 +13,9 @@ export const createPlace = async (req, res, next) => {
   }
 };
 
-// UPDATE
+// @desc      Update place
+// @route     UPDATE /api/place/:id
+// @access    Admin/Private
 export const updatePlace = async (req, res, next) => {
   try {
     const updatePlace = await Place.findByIdAndUpdate(
@@ -27,7 +31,9 @@ export const updatePlace = async (req, res, next) => {
   }
 };
 
-//GET ALL
+// @desc      Get place
+// @route     GET /api/place
+// @access    Anyone
 export const getPlace = async (req, res, next) => {
   try {
     const Places = await Place.find();

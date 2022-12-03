@@ -1,6 +1,9 @@
 import Item from "../models/Item.js";
 import Category from "../models/Category.js";
 
+// @desc      Create items for specefic category
+// @route     UPDATE /api/items/:id
+// @access    Admin/Private
 export const createItem = async (req, res, next) => {
   const categoryId = req.params.categoryid;
   const newItem = new Item(req.body);
@@ -22,6 +25,9 @@ export const createItem = async (req, res, next) => {
   }
 };
 
+// @desc      Update item
+// @route     UPDATE /api/items/:id
+// @access    Admin/Private
 export const updateItem = async (req, res, next) => {
   try {
     const updateItem = await Item.findByIdAndUpdate(
@@ -37,6 +43,9 @@ export const updateItem = async (req, res, next) => {
   }
 };
 
+// @desc      Delete item
+// @route     UPDATE /api/items/:id
+// @access    Admin/Private
 export const deleteItem = async (req, res, next) => {
   const categoryId = req.params.categoryid;
 
@@ -57,6 +66,9 @@ export const deleteItem = async (req, res, next) => {
   }
 };
 
+// @desc      Get items
+// @route     GET /api/items
+// @access    Anyone
 export const getItem = async (req, res, next) => {
   try {
     const Items = await Item.find().populate("category");
