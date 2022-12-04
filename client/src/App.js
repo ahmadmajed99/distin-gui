@@ -6,7 +6,7 @@ import {
 import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Sidebar from "./components/sidebar/Sidebar";
-import Category from "./pages/category/Category";
+import Category from "./pages/category/getCategory/Category";
 import Menu from "./pages/menu/Menu";
 import Items from "./pages/items/Items";
 import { useContext } from "react";
@@ -24,7 +24,7 @@ const ProtectedRoute = ({ children }) => {
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "login",
     element: (
       <>
         <Login />
@@ -68,10 +68,10 @@ const router = createBrowserRouter([
     path: "menu",
     element: (
       <>
-        <ProtectedRoute>
-          <Sidebar />
-          <Menu />
-        </ProtectedRoute>
+        {/* <ProtectedRoute> */}
+        <Sidebar />
+        <Menu />
+        {/* </ProtectedRoute> */}
       </>
     ),
   },

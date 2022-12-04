@@ -18,10 +18,7 @@ const placeSchema = new mongoose.Schema(
       type: String,
       Required: true,
     },
-    logo: {
-      type: [String],
-      Required: false,
-    },
+    logo: String,
   },
   { timestamps: true }
 );

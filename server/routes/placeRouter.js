@@ -10,8 +10,8 @@ const router = express.Router();
 
 router.get("/", getPlace);
 
-router.post("/", verifyAdmin, createPlace);
+router.post("/", createPlace);
 
-router.put("/:id", verifyAdmin, updatePlace);
+router.put("/:id", updatePlace);
 
 export default router;

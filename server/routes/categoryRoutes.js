@@ -6,16 +6,17 @@ import {
   updateCategory,
 } from "../controllers/categoryController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
+import upload from "../helper/multer.js";
 const router = express.Router();
 
 //Create
-router.post("/", verifyAdmin, createCategory);
+router.post("/", createCategory);
 
 // UPDATE
-router.put("/:id", verifyAdmin, updateCategory);
+router.put("/:id", updateCategory);
 
 //DELETE
-router.delete("/:id", verifyAdmin, deleteCategory);
+router.delete("/:id", deleteCategory);
 
 //GET ALL
 router.get("/", getCategory);

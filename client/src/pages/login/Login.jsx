@@ -40,17 +40,23 @@ const Login = () => {
       );
       // if (res.data) {
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      navigate("/");
+      navigate("/menu");
       // } else {
-      //   dispatch({
-      //     type: "LOGIN_FAILURE",
-      //     payload: { message: "you are not allowed !" },
-      //   });
+      //   navigate("/");
+      // dispatch({
+      //   type: "LOGIN_FAILURE",
+      //   payload: { message: "you are not allowed !" },
+      // });
       // }
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }
   };
+
+  // useEffect(() => {
+  //   handleClick();
+  // }, [credentials]);
+
   console.log(user);
 
   return (

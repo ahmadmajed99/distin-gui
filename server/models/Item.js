@@ -16,7 +16,7 @@ const itemSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    image: [String],
+    image: String,
 
     category: { type: Schema.Types.ObjectId, ref: "Category" },
   },

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import cors from "cors";
 import bodyParser from "body-parser";
+import upload from "./helper/multer.js";
 
 import categoryRoutes from "./routes/categoryRoutes.js";
 import itemRoutes from "./routes/itemRoutes.js";
@@ -22,6 +23,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
+
+app.post(
+  "/api/upload",
+  upload.single("file", (req, res) => {
+    res.status(200).json(file.fileName);
+  })
+);
 
 app.use(cookieParser());
 app.use("/api/auth", adminRoutes);
