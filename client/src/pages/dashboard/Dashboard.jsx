@@ -28,7 +28,7 @@ const Dashboard = () => {
   const editPlace = async () => {
     await axios
       .put(`http://localhost:5000/api/place/${data._id}`, {
-        name: data.name,
+        name: data[0].name,
         slug: data.slug,
         description: data.desc,
         location: data.location,

@@ -6,6 +6,7 @@ import axios from "axios";
 import "./menu.css";
 
 const Menu = () => {
+  const [item, setItem] = useState([]);
   const [catData, setDatacat] = useState([]);
   const { data, loading, error } = useFetch("http://localhost:5000/api/place");
 
@@ -21,8 +22,19 @@ const Menu = () => {
     }
   };
 
+  const getAllItem = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/items");
+      console.log(response.data);
+      setItem(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getAllCategory();
+    getAllItem();
   }, []);
 
   return (
@@ -56,78 +68,65 @@ const Menu = () => {
                     <Carousel show={3}>
                       {catData &&
                         catData.map((cat) => (
-                          <div>
-                            <div
-                              style={{ padding: 8 }}
-                              className="category-card"
-                            >
-                              <div>
-                                <img
-                                  src="https://via.placeholder.com/200x300"
-                                  alt="placeholder"
-                                  style={{
-                                    width: "100%",
-                                    display: "block",
-                                    aspectRatio: 1,
-                                  }}
-                                />
-                              </div>
-
-                              <h3
-                                style={{
-                                  fontSize: "0.8rem",
-                                  fontWeight: "lighter",
-                                }}
+                          <a
+                            href={`#${catData.name}`}
+                            style={{
+                              textDecoration: "none",
+                              color: "black",
+                              // marginBottom: "20px",
+                            }}
+                          >
+                            <div>
+                              <div
+                                style={{ padding: 8 }}
+                                className="category-card"
                               >
-                                {cat.name}
-                              </h3>
+                                <div>
+                                  <img
+                                    src={`http://localhost:5000/${cat.image}`}
+                                    alt="placeholder"
+                                    style={{
+                                      width: "100%",
+                                      display: "block",
+                                      aspectRatio: 1,
+                                    }}
+                                  />
+                                </div>
+
+                                <h3
+                                  style={{
+                                    fontSize: "0.8rem",
+                                    fontWeight: "lighter",
+                                  }}
+                                >
+                                  {cat.name}
+                                </h3>
+                              </div>
                             </div>
-                          </div>
+                          </a>
                         ))}
                     </Carousel>
-                    <div className="menuItems">
-                      <div className="item-title">All</div>
-                      <div className="menu__item">
-                        <div className="image-item">
-                          <img src="" alt="" />
+                    {item &&
+                      item.length > 0 &&
+                      item.map((item, index) => (
+                        <div
+                          className="menuItems"
+                          key={index}
+                          id={`${catData.name}`}
+                        >
+                          {/* <div className="item-title">{item.name}</div> */}
+                          <div className="menu__item">
+                            <div className="image-item">
+                              <img src="" alt="" />
+                            </div>
+                            <div className="item-details">
+                              <h3>{item.name}</h3>
+                              <p>{item.desc}</p>
+                            </div>
+                            <div className="item-price">{item.price}</div>
+                          </div>
                         </div>
-                        <div className="item-details">
-                          <h3>saj zaatar</h3>
-                          <p>best pizza ever</p>
-                        </div>
-                        <div className="item-price">9 LBP</div>
-                      </div>
-                      <div className="menu__item">
-                        <div className="image-item">
-                          <img src="" alt="" />
-                        </div>
-                        <div className="item-details">
-                          <h3>saj zaatar</h3>
-                          <p>best pizza ever</p>
-                        </div>
-                        <div className="item-price">9 LBP</div>
-                      </div>
-                      <div className="menu__item">
-                        <div className="image-item">
-                          <img src="" alt="" />
-                        </div>
-                        <div className="item-details">
-                          <h3>saj zaatar</h3>
-                          <p>best pizza ever</p>
-                        </div>
-                        <div className="item-price">9 LBP</div>
-                      </div>
-                      <div className="menu__item">
-                        <div className="image-item">
-                          <img src="" alt="" />
-                        </div>
-                        <div className="item-details">
-                          <h3>saj zaatar</h3>
-                          <p>best pizza ever</p>
-                        </div>
-                        <div className="item-price">9 LBP</div>
-                      </div>
-                    </div>
+                      ))}
                   </div>
                 </div>
               </div>

@@ -4,11 +4,13 @@ import Carousel from "../../../components/carousel/Carousel";
 import EditCategory from "../editCategory/EditCategory";
 import Loader from "../../../components/loader/Loader";
 import DeleteCategory from "../deleteCategory/DeleteCategory";
+// import Img from "../../../../public/upload/";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Category = () => {
   const [file, setFile] = useState(null);
+
   const [addCat, setAddcat] = useState({
     name: "",
     image: "",
@@ -19,7 +21,7 @@ const Category = () => {
 
   console.log(data);
 
-  const token = localStorage.getItem("user");
+  // const token = localStorage.getItem("user");
 
   const handleChange = (e) => {
     setAddcat((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -27,19 +29,21 @@ const Category = () => {
 
   const handleAddCategory = async (e) => {
     e.preventDefault();
+    const formData = new formData();
+    formData.append("name", addCat.name);
+    formData.append("image", addCat.image);
     try {
       const res = await axios.post(
         "http://localhost:5000/api/categories",
-        addCat
+        formData
         // { withCredentials: true }
       );
+      console.log(addCat);
       console.log(res.data);
     } catch (err) {
       console.log(err);
     }
   };
-
-  console.log(addCat);
 
   return (
     <div className="category">
@@ -62,7 +66,7 @@ const Category = () => {
                     <div style={{ padding: 8 }} className="category-card">
                       <div className="card">
                         <img
-                          src={cat.image}
+                          src={`http://localhost:5000/${cat.image}`}
                           alt="placeholder"
                           style={{
                             width: "100%",

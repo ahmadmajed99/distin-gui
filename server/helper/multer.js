@@ -1,9 +1,8 @@
 import multer from "multer";
 
-const PATH = "../../client/public/upload";
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, PATH);
+    cb(null, `./image`);
   },
   filename: (req, file, cb) => {
     const fileName = Date.now().toString() + ".png";

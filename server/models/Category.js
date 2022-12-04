@@ -8,7 +8,10 @@ const categorySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    image: String,
+    image: {
+      type: String,
+      required: false,
+    },
 
     items: [{ type: Schema.Types.ObjectId, ref: "Item" }],
   },

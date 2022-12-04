@@ -59,7 +59,6 @@ const EditCategory = (props) => {
         className="iconss__func"
       />
       <Dialog maxWidth={"md"} open={open} onClose={handleClose}>
-        <DialogTitle>Edit Category</DialogTitle>
         <DialogContent>
           <div className="add-category-form-container" id="form">
             <h2 className="left">Add category</h2>
@@ -84,7 +83,7 @@ const EditCategory = (props) => {
                 />
               </label>
               <button className="updateBtn" onClick={editCategory}>
-                Update place
+                Update category
               </button>
             </form>
           </div>

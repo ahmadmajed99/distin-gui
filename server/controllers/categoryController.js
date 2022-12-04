@@ -4,11 +4,19 @@ import Category from "../models/Category.js";
 // @route     CREATE /api/categories
 // @access    Admin/Private
 export const createCategory = async (req, res, next) => {
-  const newCategory = new Category(req.body);
+  const { name } = req.body;
+  const image = req.file.path;
 
   try {
-    const savedCategory = await newCategory.save();
-    res.status(200).json(savedCategory);
+    await Category.create({
+      name: name,
+      image: image,
+    });
+    return res.status(201).json({
+      status: 201,
+      success: true,
+      data: "category added success",
+    });
   } catch (err) {
     next(err);
   }
@@ -19,6 +27,30 @@ export const createCategory = async (req, res, next) => {
 // @access    Admin/Private
 export const updateCategory = async (req, res, next) => {
   try {
+    // const { id } = req.params;
+    // const { name } = req.body;
+    // let image = null;
+    // if (req.file) {
+    //   image = req.file.path;
+    // } else {
+    //   image = req.body.image;
+    // }
+
+    // try {
+    //   await Category.findById(id);
+    //   await Category.updateOne({
+    //     name: name,
+    //     image: image,
+    //   });
+    //   return res.status(201).json({
+    //     status: 201,
+    //     success: true,
+    //     data: `category with ${id} edit success`,
+    //   });
+    // } catch (err) {
+    //   next(200);
+    // }
+
     const updateCategory = await Category.findByIdAndUpdate(
       req.params.id,
       {

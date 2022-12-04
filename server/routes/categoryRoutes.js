@@ -10,10 +10,10 @@ import upload from "../helper/multer.js";
 const router = express.Router();
 
 //Create
-router.post("/", createCategory);
+router.post("/", upload.single("image"), createCategory);
 
 // UPDATE
-router.put("/:id", updateCategory);
+router.put("/:id", upload.single("image"), updateCategory);
 
 //DELETE
 router.delete("/:id", deleteCategory);

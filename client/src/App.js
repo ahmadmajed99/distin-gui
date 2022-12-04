@@ -8,7 +8,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Sidebar from "./components/sidebar/Sidebar";
 import Category from "./pages/category/getCategory/Category";
 import Menu from "./pages/menu/Menu";
-import Items from "./pages/items/Items";
+import Items from "./pages/items/addItems/Items";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
